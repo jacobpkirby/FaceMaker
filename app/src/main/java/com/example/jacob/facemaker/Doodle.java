@@ -4,15 +4,18 @@ package com.example.jacob.facemaker;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.SurfaceView;
+
+import com.example.jacob.facemaker.feature.Face;
 
 /**
  * Created by Jacob on 2/1/2016.
  */
 public class Doodle extends SurfaceView {
-    static int rectColor;
+    private Face face = new Face();
+
+    private int rectColor = Color.MAGENTA;
 
     public Doodle(Context context) {
         super(context);
@@ -34,21 +37,19 @@ public class Doodle extends SurfaceView {
         setWillNotDraw(false);
     }
 
-    public static void setColor(int color) {
-        Doodle.rectColor = color;
+    public void setColor(int rectColor) {
+        this.rectColor = rectColor;
+        invalidate();
     }
 
 
     @Override
     public void onDraw(Canvas canvas){
-        Paint magentaPaint = new Paint();
+        face.draw(canvas);
+    }
 
-        magentaPaint.setColor(Color.MAGENTA);
-        canvas.drawRect(50.0f,50.0f,100.0f,100.0f,magentaPaint);
-
-
-
-
+    public Face getFace() {
+        return face;
     }
 }
 
