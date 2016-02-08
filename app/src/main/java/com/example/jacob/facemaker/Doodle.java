@@ -11,11 +11,12 @@ import com.example.jacob.facemaker.feature.Face;
 
 /**
  * Created by Jacob on 2/1/2016.
+ * This is the surface View class. This is where the face is drawn onto the surface View.
  */
 public class Doodle extends SurfaceView {
     private Face face = new Face();
 
-    private int rectColor = Color.MAGENTA;
+
 
     public Doodle(Context context) {
         super(context);
@@ -38,7 +39,7 @@ public class Doodle extends SurfaceView {
     }
 
     public void setColor(int rectColor) {
-        this.rectColor = rectColor;
+       // this.rectColor = rectColor;
         invalidate();
     }
 

@@ -3,6 +3,7 @@ package com.example.jacob.facemaker;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioGroup;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -17,6 +18,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private HairSpinner hairSpinner;
     private NoseSpinner noseSpinner;
+    private Button randomButton;
 
 
     @Override
@@ -26,7 +28,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         doodle = (Doodle) findViewById((R.id.surfaceView));
 
-
+        randomButton = (Button)findViewById(R.id.randomButton);
+        randomButton.setOnClickListener(this);
 
         colorManager = new FeatureColorManager(this, doodle);
         colorManager.onCreate(savedInstanceState);
@@ -50,7 +53,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public void onClick(View v){
 
 
+    if(v.getId() == R.id.randomButton) {
+        hairSpinner.randomChoice();
+        noseSpinner.randomChoice();
 
+    }
     }
 
 }
