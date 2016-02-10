@@ -15,8 +15,17 @@ import com.example.jacob.facemaker.feature.Feature;
  */
 public class Eyes extends AbstractFeature implements Feature {
 
-    private NormalEye leftEye = new NormalEye(50, 35, Color.GREEN);
-    private NormalEye rightEye = new NormalEye(50, 35, Color.GREEN);
+    private Eye leftEye;
+    private Eye rightEye;
+
+    //to be an eye, 2 eyes must be passed in with a color
+    public Eyes(Eye leftEye, Eye rightEye, int color) {
+        this.color = color;
+        this.leftEye = leftEye;
+        this.rightEye = rightEye;
+        this.leftEye.setColor(color);
+        this.rightEye.setColor(color);
+    }
 
     public Eyes(int color) {
         this.color = color;
@@ -26,7 +35,9 @@ public class Eyes extends AbstractFeature implements Feature {
 
     @Override
     public void draw(Canvas c) {
+        //rect is the surface view
         Rect rect = c.getClipBounds();
+        //left and right eye are set to a location based off of the RationLocation
         leftEye.setLocation(new RatioLocation(-0.25f, -0.25f, rect));
         rightEye.setLocation(new RatioLocation(0.25f, -0.25f, rect));
 
@@ -34,9 +45,13 @@ public class Eyes extends AbstractFeature implements Feature {
         rightEye.draw(c);
     }
 
+    //sets the color of each eye
     public void setColor(int color) {
         this.color = color;
         leftEye.setColor(color);
         rightEye.setColor(color);
     }
+
+
+
 }

@@ -14,10 +14,12 @@ import com.example.jacob.facemaker.feature.Feature;
  */
 public class Head extends AbstractFeature implements Feature {
 
+    //These falues are used to position the head oval onto the surface view.
     private static final float WIDTH_RATIO = 0.70f;
     private static final float HEIGHT_RATIO = 0.65f;
 
     public Head(int color) {
+
         this.color = color;
     }
 
@@ -29,15 +31,15 @@ public class Head extends AbstractFeature implements Feature {
 
         Path path = new Path();
 
-        Rect rect = canvas.getClipBounds();
+        Rect rect = canvas.getClipBounds(); // rect is the size of the surface view
 
-        float x = rect.width() / 2.0f;
-        float y = rect.height() / 2.0f;
+        float x = rect.width() / 2.0f; // x is centered
+        float y = rect.height() / 2.0f;  // y is centered
 
-        float dx =  x * WIDTH_RATIO;
-        float dy = y * HEIGHT_RATIO;
+        float dx =  x * WIDTH_RATIO; // the radius in the x direction with respect to the ratio
+        float dy = y * HEIGHT_RATIO; // the radius in the y direction with
 
-
+    // creates the face path
         path.addOval(x - dx, y - dy, x + dx, y + dy, Path.Direction.CCW);
 
         canvas.drawPath(path, paint);

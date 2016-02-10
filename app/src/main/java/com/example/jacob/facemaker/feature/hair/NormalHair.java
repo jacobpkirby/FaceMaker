@@ -14,8 +14,7 @@ import com.example.jacob.facemaker.feature.Feature;
  */
 public class NormalHair extends Hair implements Feature {
 
-
-
+    //This class creates the Normal hair style path
     @Override
     public void draw(Canvas c) {
 

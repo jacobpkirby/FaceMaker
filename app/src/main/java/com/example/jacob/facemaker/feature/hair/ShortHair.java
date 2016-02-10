@@ -12,7 +12,7 @@ import com.example.jacob.facemaker.feature.Feature;
  */
 public class ShortHair extends Hair implements Feature {
 
-
+// this method creats the short hair style
     @Override
     public void draw(Canvas c) {
 

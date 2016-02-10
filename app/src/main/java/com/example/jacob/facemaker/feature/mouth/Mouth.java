@@ -14,11 +14,13 @@ import com.example.jacob.facemaker.feature.Feature;
  */
 public class Mouth extends AbstractFeature implements Feature {
 
+    // the folowing floats are used for positions the mouth to the face and surface view
     private static final float DX = 0.25f;
     private static final float DY = 0.125f;
     private static final int COLOR = Color.RED;
 
     public Mouth(int color) {
+
         this.color = color;
     }
 
@@ -30,8 +32,10 @@ public class Mouth extends AbstractFeature implements Feature {
 
         Path path = new Path();
 
+
         float x = location.x();
         float y = location.y();
+        // the path for the math is created and drawn
         path.addArc(x - (x * DX), y - (y * DY), x + (x * DX), y + (y * DY), 0.0f, 180.0f);
 
         canvas.drawPath(path, paint);

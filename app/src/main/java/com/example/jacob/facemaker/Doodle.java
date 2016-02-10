@@ -14,15 +14,13 @@ import com.example.jacob.facemaker.feature.Face;
  * This is the surface View class. This is where the face is drawn onto the surface View.
  */
 public class Doodle extends SurfaceView {
+    //creates a face
     private Face face = new Face();
-
-
 
     public Doodle(Context context) {
         super(context);
         setWillNotDraw(false);
     }
-
     public Doodle(Context context, AttributeSet attrs) {
         super(context, attrs);
         setWillNotDraw(false);
@@ -38,10 +36,6 @@ public class Doodle extends SurfaceView {
         setWillNotDraw(false);
     }
 
-    public void setColor(int rectColor) {
-       // this.rectColor = rectColor;
-        invalidate();
-    }
 
 
     @Override
@@ -49,7 +43,9 @@ public class Doodle extends SurfaceView {
         face.draw(canvas);
     }
 
-    public Face getFace() {
+    //method returns the face that has been created and drawn on
+    public Face getFace()
+    {
         return face;
     }
 }

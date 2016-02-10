@@ -1,6 +1,7 @@
 package com.example.jacob.facemaker.feature.eye;
 
 
+import android.graphics.Color;
 
 /**
  * Created by Jacob on 2/6/2016.
@@ -8,22 +9,23 @@ package com.example.jacob.facemaker.feature.eye;
  * the name is selected from the spinner.
  */
 public class EyeFactory {
-    public static final String SPIKED = "Spiked";
+    public static final String CRAZY = "Crazy";
     public static final String NORMAL = "Normal";
-    public static final String SHORT = "Short";
-    public static final String[] STYLES = {
-             "Normal"
-    };
+    public static final String SMALL = "Small";
+    public static final String[] STYLES = {NORMAL,CRAZY,SMALL};
 
-    public static Eye getInstance(String name) {
+    //This method gets the selected string for the spinner that that been selected and finds the
+    // corresponding type of eye.
+    public static Eyes getInstance(String name) {
 
         if (name.equals(NORMAL)) {
-            return new NormalEye();
-
-
-
-        }  else {
-            throw new IllegalArgumentException("Invalid hair style name: " + name);
+            return new Eyes(new Eye(50, 35),new Eye(50, 35),Color.GREEN);
+        }  else if (name.equals(CRAZY)) {
+            return new Eyes(new Eye(25, 100),new Eye(25, 100),Color.GREEN);
+        } else if (name.equals(SMALL)) {
+            return new Eyes(new Eye(25, 25),new Eye(25, 25),Color.GREEN);
+        } else {
+            throw new IllegalArgumentException("Invalid hair style name: ");
         }
 
     }

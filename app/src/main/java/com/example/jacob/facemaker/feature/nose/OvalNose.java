@@ -9,16 +9,18 @@ import com.example.jacob.facemaker.feature.Feature;
 import com.example.jacob.facemaker.feature.hair.Hair;
 
 /**
- * Created by peter on 2/6/2016.
+ * Created by jacob on 2/6/2016.
+ * This class is used to make the oval nose style
  */
 public class OvalNose extends Nose implements Feature {
 
-
+    //These floats are used to position the nose with the correct ratio
     private static final float DX = 0.1f;
     private static final float DY = 0.1f;
 
     public OvalNose(){};
-    public OvalNose(int color) {
+    public OvalNose(int color)
+    {
         this.color = color;
     }
 
@@ -29,12 +31,9 @@ public class OvalNose extends Nose implements Feature {
         Path path = new Path();
 
 
-
-        path.addOval(
-                location.left(DX),
-                location.top(DY),
-                location.right(DX),
-                location.bottom(DY),
+        // the oval nose is created by using the ratio and sending that to the ratioLocation to
+        //be properly located on  the surface view
+        path.addOval(location.left(DX), location.top(DY), location.right(DX), location.bottom(DY),
                 Path.Direction.CW);
 
         c.drawPath(path, paint);

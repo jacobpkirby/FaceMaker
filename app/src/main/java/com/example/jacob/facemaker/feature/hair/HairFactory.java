@@ -10,10 +10,12 @@ public class HairFactory {
     public static final String SPIKED = "Spiked";
     public static final String NORMAL = "Normal";
     public static final String SHORT = "Short";
-    public static final String[] STYLES = {
-        "Spiked", "Normal","Short"
-    };
+    public static final String[] STYLES = {"Spiked", "Normal","Short"};
 
+    /*
+    This method finds what String is entered from the spinner and places it with the correct
+    hair style.
+     */
     public static Hair getInstance(String name) {
 
         if (name.equals(SPIKED)) {
@@ -23,7 +25,7 @@ public class HairFactory {
         } else if (name.equals(SHORT)){
             return new ShortHair();
         }  else {
-            throw new IllegalArgumentException("Invalid hair style name: " + name);
+            throw new IllegalArgumentException("Invalid hair style");
         }
 
     }

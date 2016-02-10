@@ -13,7 +13,8 @@ import com.example.jacob.facemaker.RatioLocation;
 /**
  * Created by Jacob on 2/6/2016.
  * This is the abstract class for Features. This is the foundation for all features and extends
- * drawable which gives each feature the ability to be drawn.
+ * drawable which gives each feature the ability to be drawn. It hides methods that are not used but
+ * require to to be implemented
  */
 public abstract class AbstractFeature extends Drawable {
 
@@ -22,22 +23,27 @@ public abstract class AbstractFeature extends Drawable {
 
     public AbstractFeature(){}
 
+
     public AbstractFeature(int color) {
+
         this.color = color;
     }
 
     public int getColor() {
+
         return color;
     }
-
+    //sets locations to the board
     public void setLocation(RatioLocation location) {
+
         this.location = location;
     }
 
     public void setColor(int color) {
+
         this.color = color;
     }
-
+    //necessary methods for Drawable
     @Override
     public void setAlpha(int alpha) {
 
